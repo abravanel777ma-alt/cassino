@@ -6,15 +6,47 @@
     <title>Cassino e Apostas Online - Emojis da Sorte</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://ibb.co/XfMJX4y4" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            color: #e2e8f0; /* Cor de texto padrão (cinza claro) */
-            background-color: #1a202c; /* Fundo escuro */
+            margin: 0;
+            padding: 0;
         }
-        
+        .hero-bg-image {
+            position: relative;
+            background-image: url('https://i.ibb.co/abc123/minha-foto.jpg'); /* <-- use o link direto aqui */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* ocupa tela inteira */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        /* overlay escuro */
+        .hero-bg-image::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6); /* controla intensidade do escuro */
+        }
+        .hero-text {
+            position: relative; /* garante que o texto fique acima do overlay */
+            color: #fff;
+            font-size: 2rem;
+            font-weight: bold;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-bg-image">
+        <div class="hero-text">
+            Cassino e Apostas Online 🎰✨
+        </div>
+    </div>
+</body>
         /* PREENCHA AQUI: URL da sua imagem de fundo que cobrirá a seção principal */
         .hero-bg-image {
             background-image: url('https://ibb.co/XfMJX4y4');
@@ -340,6 +372,7 @@
     </script>
 </body>
 </html>
+
 
 
 
