@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cassino e Apostas Online - Emojis da Sorte</title>
+  <title>Cassino e Apostas Online - Lucide Icons</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -12,7 +13,6 @@
       padding: 0;
       background-color: #111;
     }
-    /* Hero com imagem de fundo */
     .hero-bg-image {
       position: relative;
       background-image: url('https://i.ibb.co/kVvcKy3y/vecteezy-casino-logo-on-a-green-background-dice-flying-gold-coins.jpg');
@@ -32,11 +32,7 @@
       background: rgba(0,0,0,0.75);
       z-index: 0;
     }
-    .hero-bg-image > * {
-      position: relative;
-      z-index: 1;
-    }
-    /* Notificação (toast) */
+    .hero-bg-image > * { position: relative; z-index: 1; }
     .toast {
       position: fixed;
       top: 20px;
@@ -54,10 +50,7 @@
       z-index: 99999;
       cursor: pointer;
     }
-    .toast.show {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    .toast.show { opacity: 1; transform: translateX(0); }
   </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -65,16 +58,16 @@
   <!-- Header -->
   <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="#" class="text-3xl font-bold text-yellow-400">Slots ✨</a>
-      
+      <a href="#" class="text-3xl font-bold text-yellow-400 flex items-center space-x-2">
+        <i data-lucide="dice-5" class="w-7 h-7"></i><span>Slots</span>
+      </a>
       <div class="flex items-center space-x-6">
         <nav class="hidden md:flex space-x-6 font-medium">
-          <a href="#jogos" class="text-gray-300 hover:text-yellow-400">Jogos 🎰</a>
-          <a href="#seguranca" class="text-gray-300 hover:text-yellow-400">Segurança 🔒</a>
-          <a href="#promocoes" class="text-gray-300 hover:text-yellow-400">Promoções 🎁</a>
-          <a href="#ganhos" class="text-gray-300 hover:text-yellow-400">Ganhos 🏆</a>
+          <a href="#jogos" class="text-gray-300 hover:text-yellow-400 flex items-center space-x-1"><i data-lucide="gamepad-2"></i><span>Jogos</span></a>
+          <a href="#seguranca" class="text-gray-300 hover:text-yellow-400 flex items-center space-x-1"><i data-lucide="lock"></i><span>Segurança</span></a>
+          <a href="#promocoes" class="text-gray-300 hover:text-yellow-400 flex items-center space-x-1"><i data-lucide="gift"></i><span>Promoções</span></a>
+          <a href="#ganhos" class="text-gray-300 hover:text-yellow-400 flex items-center space-x-1"><i data-lucide="trophy"></i><span>Ganhos</span></a>
         </nav>
-        <!-- Botões de usuário -->
         <div class="flex space-x-2">
           <button class="user-btn bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded-md text-sm font-medium">Login</button>
           <button class="user-btn bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded-md text-sm font-medium">Senha</button>
@@ -88,22 +81,17 @@
   <section class="hero-bg-image px-6">
     <div class="max-w-3xl mx-auto">
       <h1 class="text-4xl md:text-6xl font-extrabold text-yellow-400 mb-6">
-        Bônus Liberado! Saque Seus Ganhos Com Segurança 💰
+        Bônus Liberado! Saque Seus Ganhos Com Segurança
       </h1>
       <p class="text-lg md:text-xl font-light text-gray-100 mb-8">
         Baixe o aplicativo oficial e comece a jogar com um bônus especial. 
         É a plataforma mais segura para sacar seus valores altos, com verificação de identidade e total proteção.
       </p>
       <button id="downloadButton" data-download-url="https://link-para-seu-app.com/seu-app.apk" 
-        class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-yellow-500 transition">
-        Baixar App e Resgatar Bônus 🎉
+        class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-yellow-500 transition flex items-center justify-center space-x-2">
+        <i data-lucide="download"></i><span>Baixar App e Resgatar Bônus</span>
       </button>
       <p id="downloadStatus" class="mt-4 text-sm italic text-gray-200"></p>
-      <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20ajuda%20para%20instalar%20o%20aplicativo%20de%20apostas." 
-        target="_blank" 
-        class="inline-block bg-green-500 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-green-600 transition mt-4">
-        Suporte de Instalação (WhatsApp)
-      </a>
     </div>
   </section>
 
@@ -113,22 +101,22 @@
   <!-- Seção Segurança -->
   <section id="seguranca" class="py-16 md:py-24 bg-gray-800">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-400">Sua Segurança é Nossa Prioridade 🔒</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-400">Sua Segurança é Nossa Prioridade</h2>
       <div class="grid md:grid-cols-3 gap-8 text-center">
         <div class="bg-gray-900 rounded-2xl p-8 shadow-md">
-          <span class="text-5xl mb-4 block">🛡️</span>
+          <i data-lucide="shield" class="w-16 h-16 text-yellow-400 mx-auto mb-4"></i>
           <h3 class="text-xl font-semibold mb-2">Criptografia Avançada</h3>
-          <p class="text-gray-400">Usamos tecnologia de ponta para proteger seus dados e transações.</p>
+          <p class="text-gray-400">Proteção de ponta nos seus dados e transações.</p>
         </div>
         <div class="bg-gray-900 rounded-2xl p-8 shadow-md">
-          <span class="text-5xl mb-4 block">✅</span>
+          <i data-lucide="check-circle" class="w-16 h-16 text-yellow-400 mx-auto mb-4"></i>
           <h3 class="text-xl font-semibold mb-2">Jogo Justo</h3>
-          <p class="text-gray-400">Nossos jogos são auditados para garantir resultados justos e aleatórios.</p>
+          <p class="text-gray-400">Resultados auditados e transparentes.</p>
         </div>
         <div class="bg-gray-900 rounded-2xl p-8 shadow-md">
-          <span class="text-5xl mb-4 block">🤝</span>
+          <i data-lucide="headphones" class="w-16 h-16 text-yellow-400 mx-auto mb-4"></i>
           <h3 class="text-xl font-semibold mb-2">Suporte 24/7</h3>
-          <p class="text-gray-400">Nossa equipe está sempre disponível para ajudá-lo.</p>
+          <p class="text-gray-400">Equipe sempre pronta para ajudar.</p>
         </div>
       </div>
     </div>
@@ -137,15 +125,15 @@
   <!-- Seção Ganhos -->
   <section id="ganhos" class="py-16 md:py-24 bg-gray-900">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-400">Ganhos e Saques no App 🏆</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-400">Ganhos e Saques no App</h2>
       <div class="grid md:grid-cols-2 gap-8 text-center">
         <div class="bg-gray-800 rounded-2xl p-8 shadow-md">
-          <span class="text-5xl mb-4 block">💲</span>
+          <i data-lucide="wallet" class="w-16 h-16 text-yellow-400 mx-auto mb-4"></i>
           <h3 class="text-xl font-semibold mb-2">Saques Imediatos</h3>
           <p class="text-gray-400">Saque valores altos com segurança e sem burocracia.</p>
         </div>
         <div class="bg-gray-800 rounded-2xl p-8 shadow-md">
-          <span class="text-5xl mb-4 block">🆔</span>
+          <i data-lucide="id-card" class="w-16 h-16 text-yellow-400 mx-auto mb-4"></i>
           <h3 class="text-xl font-semibold mb-2">Verificação Segura</h3>
           <p class="text-gray-400">Verificação de identidade rápida e simples.</p>
         </div>
@@ -156,20 +144,20 @@
   <!-- Seção Jogos -->
   <section id="jogos" class="py-16 md:py-24 bg-gray-900">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-400">Nossos Jogos Populares 🎲</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-yellow-400">Nossos Jogos Populares</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="bg-gray-800 rounded-2xl p-6 shadow-md text-center">
-          <span class="text-6xl mb-4 block">🎰</span>
+          <i data-lucide="coins" class="w-16 h-16 text-yellow-400 mx-auto mb-4"></i>
           <h3 class="text-xl font-semibold mb-2">Caça-Níqueis</h3>
           <p class="text-gray-400">Gire a roleta e teste a sorte.</p>
         </div>
         <div class="bg-gray-800 rounded-2xl p-6 shadow-md text-center">
-          <span class="text-6xl mb-4 block">🃏</span>
+          <i data-lucide="playing-card" class="w-16 h-16 text-yellow-400 mx-auto mb-4"></i>
           <h3 class="text-xl font-semibold mb-2">Poker</h3>
           <p class="text-gray-400">Mostre suas habilidades contra outros jogadores.</p>
         </div>
         <div class="bg-gray-800 rounded-2xl p-6 shadow-md text-center">
-          <span class="text-6xl mb-4 block">🎲</span>
+          <i data-lucide="dice-6" class="w-16 h-16 text-yellow-400 mx-auto mb-4"></i>
           <h3 class="text-xl font-semibold mb-2">Dados</h3>
           <p class="text-gray-400">Jogue os dados e vença!</p>
         </div>
@@ -180,18 +168,18 @@
   <!-- Seção Promoções -->
   <section id="promocoes" class="py-16 md:py-24 bg-gray-800">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-yellow-400">Bônus Exclusivos 🎁</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-yellow-400">Bônus Exclusivos</h2>
       <p class="text-lg md:text-xl font-light max-w-2xl mx-auto mb-8 text-gray-400">
         Aproveite nossas promoções especiais e aumente suas chances de ganhar!
       </p>
       <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
         <div class="bg-gray-900 rounded-2xl p-6 text-center shadow-lg w-full md:w-1/3">
-          <span class="text-5xl mb-2 block">💸</span>
+          <i data-lucide="badge-dollar-sign" class="w-16 h-16 text-yellow-400 mx-auto mb-4"></i>
           <h3 class="text-2xl font-semibold text-white">Bônus de Boas-Vindas</h3>
           <p class="text-gray-400 mt-2">100% no primeiro depósito!</p>
         </div>
         <div class="bg-gray-900 rounded-2xl p-6 text-center shadow-lg w-full md:w-1/3">
-          <span class="text-5xl mb-2 block">🔄</span>
+          <i data-lucide="refresh-ccw" class="w-16 h-16 text-yellow-400 mx-auto mb-4"></i>
           <h3 class="text-2xl font-semibold text-white">Rodadas Grátis</h3>
           <p class="text-gray-400 mt-2">50 rodadas no seu jogo favorito!</p>
         </div>
@@ -200,18 +188,13 @@
   </section>
 
   <!-- Footer -->
-  <footer id="contato" class="bg-gray-900 text-gray-500 py-8">
-    <div class="container mx-auto px-4 text-center">
-      <p>&copy; 2025 Cassino Online. Todos os direitos reservados. 🍀</p>
-      <div class="mt-4 text-sm">
-        <a href="#" class="hover:text-yellow-400 transition-colors">Termos de Serviço</a> |
-        <a href="#" class="hover:text-yellow-400 transition-colors">Política de Privacidade</a>
-      </div>
-    </div>
+  <footer class="bg-gray-900 text-gray-500 py-8 text-center">
+    <p>&copy; 2025 Cassino Online. Todos os direitos reservados.</p>
   </footer>
 
   <script>
-    // Toast
+    lucide.createIcons();
+
     function showToast(message) {
       const toast = document.getElementById("toast");
       toast.textContent = message;
@@ -223,12 +206,6 @@
       btn.addEventListener("click", () => {
         showToast("⚠️ Para acessar sua conta, baixe nosso app!");
       });
-    });
-    // Teste automático: aparece 2s depois de carregar
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        showToast("⚠️ Teste automático: o toast está funcionando!");
-      }, 2000);
     });
 
     // Download com progresso
