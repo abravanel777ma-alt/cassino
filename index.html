@@ -1,99 +1,87 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cassino e Apostas Online - Emojis da Sorte</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .hero-bg-image {
-            position: relative;
-            background-image: url('https://i.ibb.co/kVvcKy3y/vecteezy-casino-logo-on-a-green-background-dice-flying-gold-coins.jpg'); /* <-- use o link direto aqui */
-            background-size: cover;
-            background-position: center;
-            height: 100vh; /* ocupa tela inteira */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        /* overlay escuro */
-        .hero-bg-image::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.6); /* controla intensidade do escuro */
-        }
-        .hero-text {
-            position: relative; /* garante que o texto fique acima do overlay */
-            color: #fff;
-            font-size: 2rem;
-            font-weight: bold;
-            z-index: 1;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cassino e Apostas Online - Emojis da Sorte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #111;
+    }
+    /* Hero com imagem de fundo */
+    .hero-bg-image {
+      position: relative;
+      background-image: url('https://i.ibb.co/kVvcKy3y/vecteezy-casino-logo-on-a-green-background-dice-flying-gold-coins.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    /* overlay escuro cobrindo tudo */
+    .hero-bg-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.75); /* mais escuro para destacar */
+      z-index: 0;
+    }
+    /* garante que tudo dentro do hero fique acima */
+    .hero-bg-image > * {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
 </head>
-<body class="bg-gray-900">
+<body class="bg-gray-900 text-white">
 
-    <!-- Header -->
-    <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-3xl font-bold text-yellow-400">Slots ✨</a>
-            
-            <!-- Menu de navegação (desktop) -->
-            <nav class="hidden md:flex space-x-6 font-medium">
-                <a href="#jogos" class="text-gray-400 hover:text-yellow-400 transition-colors">Jogos 🎰</a>
-                <a href="#seguranca" class="text-gray-400 hover:text-yellow-400 transition-colors">Segurança 🔒</a>
-                <a href="#promocoes" class="text-gray-400 hover:text-yellow-400 transition-colors">Promoções 🎁</a>
-                <a href="#ganhos" class="text-gray-400 hover:text-yellow-400 transition-colors">Ganhos 🏆</a>
-            </nav>
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-3xl font-bold text-yellow-400">Slots ✨</a>
+      <nav class="hidden md:flex space-x-6 font-medium">
+        <a href="#jogos" class="text-gray-300 hover:text-yellow-400">Jogos 🎰</a>
+        <a href="#seguranca" class="text-gray-300 hover:text-yellow-400">Segurança 🔒</a>
+        <a href="#promocoes" class="text-gray-300 hover:text-yellow-400">Promoções 🎁</a>
+        <a href="#ganhos" class="text-gray-300 hover:text-yellow-400">Ganhos 🏆</a>
+      </nav>
+    </div>
+  </header>
 
-            <!-- Botão do menu mobile -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400">
-                <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </div>
+  <!-- Hero -->
+  <section class="hero-bg-image px-6">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-yellow-400 mb-6">
+        Bônus Liberado! Saque Seus Ganhos Com Segurança 💰
+      </h1>
+      <p class="text-lg md:text-xl font-light text-gray-100 mb-8">
+        Baixe o aplicativo oficial e comece a jogar com um bônus especial. 
+        É a plataforma mais segura para sacar seus valores altos, com verificação de identidade e total proteção.
+      </p>
+      <button id="downloadButton" data-download-url="https://link-para-seu-app.com/seu-app.apk" 
+        class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-yellow-500 transition">
+        Baixar App e Resgatar Bônus 🎉
+      </button>
+      <p id="downloadStatus" class="mt-4 text-sm italic text-gray-200"></p>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20ajuda%20para%20instalar%20o%20aplicativo%20de%20apostas." 
+        target="_blank" 
+        class="inline-block bg-green-500 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-green-600 transition mt-4">
+        Suporte de Instalação (WhatsApp)
+      </a>
+    </div>
+  </section>
 
-        <!-- Menu mobile (oculto por padrão) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 shadow-xl">
-            <a href="#jogos" class="block py-3 px-4 text-gray-400 hover:bg-gray-700">Jogos 🎰</a>
-            <a href="#seguranca" class="block py-3 px-4 text-gray-400 hover:bg-gray-700">Segurança 🔒</a>
-            <a href="#promocoes" class="block py-3 px-4 text-gray-400 hover:bg-gray-700">Promoções 🎁</a>
-            <a href="#ganhos" class="block py-3 px-4 text-gray-400 hover:bg-gray-700">Ganhos 🏆</a>
-        </div>
-    </header>
-
-    <!-- Seção de destaque (Hero) -->
-    <section class="hero-bg-image py-20 md:py-32 text-center text-white">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-yellow-400">
-                Bônus Liberado! Saque Seus Ganhos Com Segurança 💰
-            </h1>
-            <p class="text-lg md:text-xl font-light max-w-2xl mx-auto mb-8">
-                Baixe o aplicativo oficial e comece a jogar com um bônus especial. É a plataforma mais segura para sacar seus valores altos, com verificação de identidade e total proteção.
-            </p>
-            
-            <!-- Botão de Download com progresso -->
-            <!-- PREENCHA AQUI: Substitua a URL de destino do arquivo APK -->
-            <button id="downloadButton" data-download-url="https://link-para-seu-app.com/seu-app.apk" class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-yellow-500 transition-colors btn-glow">
-                Baixar App e Resgatar Bônus 🎉
-            </button>
-            <p id="downloadStatus" class="mt-4 text-white text-sm italic font-light"></p>
-
-            <!-- Botão de suporte WhatsApp -->
-            <!-- PREENCHA AQUI: Substitua o número de telefone e a mensagem do WhatsApp -->
-            <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20ajuda%20para%20instalar%20o%20aplicativo%20de%20apostas." target="_blank" class="inline-block bg-green-500 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-green-600 transition-colors btn-glow mt-4">
-                Suporte de Instalação (WhatsApp)
-            </a>
-            
-        </div>
-    </section>
+  <!-- Resto das seções (Segurança, Ganhos, Jogos, Promoções, Footer) -->
+  <!-- Você pode reaproveitar o que já tinha, pois o ajuste principal é no hero -->
 
     <!-- Seção de Segurança Reforçada -->
     <section id="seguranca" class="py-16 md:py-24 bg-gray-800">
@@ -334,6 +322,7 @@
     </script>
 </body>
 </html>
+
 
 
 
