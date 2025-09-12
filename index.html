@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cassino e Apostas Online - Emojis da Sorte</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
@@ -27,20 +25,100 @@
       text-align: center;
       overflow: hidden;
     }
-    /* overlay escuro cobrindo tudo */
     .hero-bg-image::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.75); /* mais escuro para destacar */
+      background: rgba(0,0,0,0.75);
       z-index: 0;
     }
-    /* garante que tudo dentro do hero fique acima */
     .hero-bg-image > * {
       position: relative;
       z-index: 1;
     }
+    /* Notificação (toast) */
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #facc15; /* amarelo */
+      color: #111;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.3s ease;
+      z-index: 9999;
+      cursor: pointer;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-3xl font-bold text-yellow-400">Slots ✨</a>
+      
+      <!-- Botões do usuário -->
+      <div class="flex space-x-4">
+        <button class="user-btn bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-md text-sm font-medium">Login</button>
+        <button class="user-btn bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-md text-sm font-medium">Senha</button>
+        <button class="user-btn bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-md text-sm font-medium">Saldo: R$***,**</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-bg-image px-6">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-yellow-400 mb-6">
+        Bônus Liberado! Saque Seus Ganhos Com Segurança 💰
+      </h1>
+      <p class="text-lg md:text-xl font-light text-gray-100 mb-8">
+        Baixe o aplicativo oficial e comece a jogar com um bônus especial. 
+        É a plataforma mais segura para sacar seus valores altos, com verificação de identidade e total proteção.
+      </p>
+      <button id="downloadButton" 
+        class="bg-yellow-400 text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-yellow-500 transition">
+        Baixar App e Resgatar Bônus 🎉
+      </button>
+      <p id="downloadStatus" class="mt-4 text-sm italic text-gray-200"></p>
+    </div>
+  </section>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">⚠️ Para acessar sua conta, baixe nosso app!</div>
+
+  <script>
+    // Função para exibir notificação
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      // Fecha sozinho em 4 segundos
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 4000);
+
+      // Se clicar na notificação, fecha
+      toast.onclick = () => toast.classList.remove("show");
+    }
+
+    // Eventos nos botões de usuário
+    document.querySelectorAll(".user-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        showToast("⚠️ Para acessar sua conta, baixe nosso app!");
+      });
+    });
+  </script>
 </head>
 <body class="bg-gray-900 text-white">
 
@@ -322,6 +400,7 @@
     </script>
 </body>
 </html>
+
 
 
 
