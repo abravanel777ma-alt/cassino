@@ -41,21 +41,22 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      background: #facc15; /* amarelo */
+      background: #facc15;
+      border: 2px solid #000;
       color: #111;
       padding: 14px 20px;
       border-radius: 8px;
       font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
       opacity: 0;
-      transform: translateY(-20px);
-      transition: all 0.3s ease;
-      z-index: 9999;
+      transform: translateX(120%);
+      transition: all 0.4s ease;
+      z-index: 99999;
       cursor: pointer;
     }
     .toast.show {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateX(0);
     }
   </style>
 </head>
@@ -222,6 +223,12 @@
       btn.addEventListener("click", () => {
         showToast("⚠️ Para acessar sua conta, baixe nosso app!");
       });
+    });
+    // Teste automático: aparece 2s depois de carregar
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        showToast("⚠️ Teste automático: o toast está funcionando!");
+      }, 2000);
     });
 
     // Download com progresso
