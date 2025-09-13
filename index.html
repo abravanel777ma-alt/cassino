@@ -231,79 +231,38 @@
       });
     });
 
-    // Download com progresso (mantido do seu código)
-    document.addEventListener('DOMContentLoaded', () => {
-      const downloadButton = document.getElementById('downloadButton');
-      const downloadStatus = document.getElementById('downloadStatus');
-      const downloadUrl = downloadButton.getAttribute('data-download-url');
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const downloadButton = document.getElementById('downloadButton');
+    const downloadStatus = document.getElementById('downloadStatus');
+    const downloadUrl = downloadButton.getAttribute('data-download-url');
 
+    if (localStorage.getItem('appDownloaded')) {
+      downloadButton.textContent = 'App Baixado!';
+      downloadButton.disabled = true;
+      downloadStatus.textContent = 'Você já baixou o app. Verifique sua pasta "Downloads".';
+    }
+
+    downloadButton.addEventListener('click', () => {
       if (localStorage.getItem('appDownloaded')) {
-        downloadButton.textContent = 'App Baixado!';
-        downloadButton.disabled = true;
         downloadStatus.textContent = 'Você já baixou o app. Verifique sua pasta "Downloads".';
+        return;
       }
 
-      downloadButton.addEventListener('click', async () => {
-        if (localStorage.getItem('appDownloaded')) {
-          downloadStatus.textContent = 'Você já baixou o app. Verifique sua pasta "Downloads".';
-          return;
-        }
+      // Aqui a mudança 👇 — abre direto o link do 4sync
+      downloadStatus.textContent = 'Redirecionando para o download...';
+      window.location.href = downloadUrl;
 
-        downloadButton.textContent = 'Baixando... 0%';
-        downloadButton.disabled = true;
-
-        try {
-          const response = await fetch(downloadUrl);
-          if (!response.ok) throw new Error('Erro ao baixar');
-
-          const contentLength = response.headers.get('content-length');
-          const reader = response.body?.getReader?.();
-          if (!reader) { // fallback simples
-            const blob = await response.blob();
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url; a.download = 'seu-app.apk';
-            document.body.appendChild(a); a.click(); a.remove();
-            URL.revokeObjectURL(url);
-            downloadButton.textContent = 'Download Concluído!';
-            downloadStatus.textContent = 'Verifique sua pasta "Downloads".';
-            localStorage.setItem('appDownloaded', 'true');
-            return;
-          }
-
-          let receivedLength = 0;
-          const chunks = [];
-          while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-            chunks.push(value);
-            receivedLength += value.length;
-            if (contentLength) {
-              const progress = (receivedLength / contentLength) * 100;
-              downloadButton.textContent = `Baixando... ${progress.toFixed(0)}%`;
-            }
-          }
-
-          const blob = new Blob(chunks);
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url; a.download = 'seu-app.apk';
-          document.body.appendChild(a); a.click(); a.remove();
-          URL.revokeObjectURL(url);
-
-          downloadButton.textContent = 'Download Concluído!';
-          downloadStatus.textContent = 'Verifique sua pasta "Downloads".';
-          localStorage.setItem('appDownloaded', 'true');
-
-        } catch (err) {
-          console.error(err);
-          downloadButton.textContent = 'Erro ao Baixar';
-          downloadStatus.textContent = 'Erro no download. Tente novamente.';
-        }
-      });
+      // Marca como baixado (opcional, pode tirar se não quiser bloquear depois)
+      localStorage.setItem('appDownloaded', 'true');
+      downloadButton.textContent = 'Download Iniciado!';
+      downloadButton.disabled = true;
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
+
 
 
